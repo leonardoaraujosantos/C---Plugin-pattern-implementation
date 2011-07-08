@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PluginFramework", "PluginFramework\PluginFramework.vcproj", "{2BB1A52F-1DD0-4856-A557-75D585468B77}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CPPPlugin", "CPPPlugin\CPPPlugin.vcproj", "{ACC7B762-BD5F-45BD-A132-70FE3A8B4F5D}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SampleUsage", "SampleUsage\SampleUsage.vcproj", "{35C87FC7-9122-40D5-85E8-B89EB5065ED3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2BB1A52F-1DD0-4856-A557-75D585468B77}.Debug|Win32.ActiveCfg = Debug|Win32
+		{2BB1A52F-1DD0-4856-A557-75D585468B77}.Debug|Win32.Build.0 = Debug|Win32
+		{2BB1A52F-1DD0-4856-A557-75D585468B77}.Release|Win32.ActiveCfg = Release|Win32
+		{2BB1A52F-1DD0-4856-A557-75D585468B77}.Release|Win32.Build.0 = Release|Win32
+		{ACC7B762-BD5F-45BD-A132-70FE3A8B4F5D}.Debug|Win32.ActiveCfg = Debug|Win32
+		{ACC7B762-BD5F-45BD-A132-70FE3A8B4F5D}.Debug|Win32.Build.0 = Debug|Win32
+		{ACC7B762-BD5F-45BD-A132-70FE3A8B4F5D}.Release|Win32.ActiveCfg = Release|Win32
+		{ACC7B762-BD5F-45BD-A132-70FE3A8B4F5D}.Release|Win32.Build.0 = Release|Win32
+		{35C87FC7-9122-40D5-85E8-B89EB5065ED3}.Debug|Win32.ActiveCfg = Debug|Win32
+		{35C87FC7-9122-40D5-85E8-B89EB5065ED3}.Debug|Win32.Build.0 = Debug|Win32
+		{35C87FC7-9122-40D5-85E8-B89EB5065ED3}.Release|Win32.ActiveCfg = Release|Win32
+		{35C87FC7-9122-40D5-85E8-B89EB5065ED3}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

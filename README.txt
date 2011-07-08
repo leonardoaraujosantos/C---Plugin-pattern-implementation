@@ -1,0 +1,1 @@
+Simple projects that aims to implement Plugin pattern on C++
