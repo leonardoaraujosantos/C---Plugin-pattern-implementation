@@ -5,6 +5,7 @@
 
 #include <string>
 #include <vector>
+#include <map>
 
 // Boost funcions to filesystem
 #include <boost/filesystem.hpp>
@@ -23,15 +24,18 @@ class PluginManager
 {
 public:	
 	PluginManager(std::string pExt, std::string pDir);
+	IPlugin* getPlugin(std::string pluginName);
 	~PluginManager(void);
 private:
 	std::string mPluginExtension;
 	std::string mPluginDirectory;
 	int mVecIndex;
 	std::vector< std::string > mPluginFileNameList;
+	std::map<std::string, std::pair<IPlugin*, void*> > mPlugins;
 	
 	void checkPluginDir();
 	void loadPlugins();
+	void unloadPlugins();
 };
 
 // Typedef for our plugin signature (our plugins must implement those 2 functions at least)

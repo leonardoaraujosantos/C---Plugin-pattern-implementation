@@ -7,6 +7,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CPPPlugin", "CPPPlugin\CPPP
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SampleUsage", "SampleUsage\SampleUsage.vcproj", "{35C87FC7-9122-40D5-85E8-B89EB5065ED3}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CPPPlugin2", "CPPPlugin2\CPPPlugin2.vcproj", "{4D7A3751-D7B9-48CA-A422-E533804FD4BE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -25,6 +27,10 @@ Global
 		{35C87FC7-9122-40D5-85E8-B89EB5065ED3}.Debug|Win32.Build.0 = Debug|Win32
 		{35C87FC7-9122-40D5-85E8-B89EB5065ED3}.Release|Win32.ActiveCfg = Release|Win32
 		{35C87FC7-9122-40D5-85E8-B89EB5065ED3}.Release|Win32.Build.0 = Release|Win32
+		{4D7A3751-D7B9-48CA-A422-E533804FD4BE}.Debug|Win32.ActiveCfg = Debug|Win32
+		{4D7A3751-D7B9-48CA-A422-E533804FD4BE}.Debug|Win32.Build.0 = Debug|Win32
+		{4D7A3751-D7B9-48CA-A422-E533804FD4BE}.Release|Win32.ActiveCfg = Release|Win32
+		{4D7A3751-D7B9-48CA-A422-E533804FD4BE}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

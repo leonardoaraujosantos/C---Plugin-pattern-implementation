@@ -3,6 +3,8 @@
 
 PluginManager::~PluginManager(void)
 {
+	// Unload all plugins
+	unloadPlugins();
 }
 
 PluginManager::PluginManager(std::string pExt, std::string pDir) : mPluginExtension(pExt), mPluginDirectory(pDir)
@@ -51,6 +53,25 @@ void PluginManager::checkPluginDir()
 	}
 }
 
+void PluginManager::unloadPlugins()
+{
+	for (std::map<std::string, std::pair<IPlugin*, void*>>::iterator it = mPlugins.begin(); it != mPlugins.end(); it++)
+	{
+		std::pair<IPlugin*, void*> plugRecord = it->second;
+		IPlugin* pluginInstance = plugRecord.first;
+		void * handle = plugRecord.second;
+		
+		// Debug message
+		std::cout << "Plugin=" << pluginInstance->Get_Name() << " unloaded " << std::endl;
+		
+		// Get the address of our cleanup function (OS dependent Windows(GetProcAddress), Linux(dlsym))
+		PLUGIN_CLEANUP p_cleanup_function = (PLUGIN_CLEANUP) ::GetProcAddress ((HMODULE) handle, "Release_Plugin");
+		
+		// Call plugin clean routine
+		(*p_cleanup_function)(pluginInstance);
+	}
+}
+
 void PluginManager::loadPlugins()
 {
 	// Iterate through each plugin loading it
@@ -73,14 +94,17 @@ void PluginManager::loadPlugins()
 				// Call our library factory to create our plugin instance
 				IPlugin* p_plugin = (*p_factory_function) ();
 
+				// Add plugin into the Map
+				mPlugins.insert( std::pair<std::string, std::pair<IPlugin*, void*>>(p_plugin->Get_Name(), std::make_pair(p_plugin, handle)) );
+
 				// Just to debug show our plugin name
 				std::cout << "Plugin=" << p_plugin->Get_Name() << " loaded " << std::endl;
 
 				// Call our plugin code
-				p_plugin->Process_Data();
+				//p_plugin->Process_Data();
 
 				// Nice now clean our plugin instance by calling our plugin clean function
-				(*p_cleanup_function)(p_plugin);
+				//(*p_cleanup_function)(p_plugin);
 			}
 			else
 			{
@@ -93,3 +117,20 @@ void PluginManager::loadPlugins()
 		}
 	}
 }
+
+IPlugin* PluginManager::getPlugin(std::string pluginName)
+{
+	std::map<std::string, std::pair<IPlugin*, void*>>::iterator it = mPlugins.find(pluginName);
+
+	if (it != mPlugins.end())
+	{
+		std::pair<IPlugin*, void*> plugRecord = it->second;
+		IPlugin* pluginInstance = plugRecord.first;
+		return pluginInstance;
+	}
+	else
+	{
+		throw std::exception("Plugin not found");
+	}
+}
+

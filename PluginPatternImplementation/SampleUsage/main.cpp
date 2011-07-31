@@ -40,6 +40,15 @@ int main(int ac, char* av[])
 
 		// Initialize plugin manager
 		PluginManager pm(plugExt, plugDir);
+
+		IPlugin* plugin = pm.getPlugin("Plugin1");
+		plugin->Process_Data();
+
+		plugin = pm.getPlugin("Plugin2");
+		plugin->Process_Data();
+
+		plugin = pm.getPlugin("Plugin3");
+		plugin->Process_Data();
 	}
 	catch(std::exception &e)
 	{		
